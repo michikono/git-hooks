@@ -35,7 +35,7 @@ fi
 # this is the magic: 
 # retrieve all files in staging area that are added, modified or renamed
 # but no deletions etc
-FILES=$(git diff-index --name-only --cached --diff-filter=ACMR $against -- )
+FILES=$(git diff-index --name-only --cached --diff-filter=ACMR $against -- | grep "\.php$" )
 
 if [ "$FILES" == "" ]; then
     exit 0
